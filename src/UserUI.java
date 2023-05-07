@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class UserUI {
     private BufferedReader br;
@@ -38,4 +39,16 @@ public class UserUI {
             return  null;
         }
     }
+
+    public void printUserList(List<User> users){
+        System.out.println("email           이름            생년");
+        System.out.println("===================================");
+        for (int  i = 0; i < users.size(); i++){
+            User user = users.get(i);
+            System.out.println(user.getEmail());
+            System.out.println(user.getName());
+            System.out.println(user.getBirthYear());
+        }
+    }
+
 }
