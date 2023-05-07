@@ -20,4 +20,22 @@ public class UserUI {
         }
         return menuId;
     }
+
+    public User regMenu() {
+        try {
+            System.out.println("email을 입력");
+            String email = br.readLine();
+            System.out.println("이름 임력");
+            String name = br.readLine();
+            System.out.println("생년 임력");
+            String strBirthYear = br.readLine();
+            int birthYear = Integer.parseInt(strBirthYear);
+
+            User user = new User(email, name, birthYear);
+            return user;
+        } catch (Exception ex){
+            ex.printStackTrace();
+            return  null;
+        }
+    }
 }
