@@ -12,10 +12,12 @@ public class UserMain {
                 System.out.println("종료");
                 userDao.saveUser(users);
                 break;
-            }else if(menuId == 1){
+            } else if(menuId == 1){
                 User user = userUI.regMenu();
                 users.add(user);
                 System.out.println("등록");
+            } else if(menuId == 2) {
+                userUI.printUserList(users);
             }
         }
 

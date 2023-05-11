@@ -45,9 +45,12 @@ public class UserUI {
         System.out.println("===================================");
         for (int  i = 0; i < users.size(); i++){
             User user = users.get(i);
-            System.out.println(user.getEmail());
-            System.out.println(user.getName());
-            System.out.println(user.getBirthYear());
+            System.out.print(user.getEmail());
+            System.out.print("      ");
+            System.out.print(user.getName());
+            System.out.print("      ");
+            System.out.print(user.getBirthYear());
+            System.out.println();
         }
     }
 
