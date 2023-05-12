@@ -11,6 +11,7 @@ public class UserUI {
     public int menu(){
         System.out.println("1. 회원등록");
         System.out.println("2. 회원목록보기");
+        System.out.println("3. 회원정보수정");
         System.out.println("3. 종료");
         int menuId = -1;
         try {
@@ -20,6 +21,17 @@ public class UserUI {
             ex.printStackTrace();
         }
         return menuId;
+    }
+
+    public String inputEmail() {
+        System.out.println("email 입력");
+        String email = "";
+        try {
+            return br.readLine();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return email;
     }
 
     public User regMenu() {
