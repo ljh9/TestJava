@@ -34,6 +34,23 @@ public class UserUI {
         return email;
     }
 
+    public User inputUser(String email){
+        try {
+            System.out.println(email + " 회원 수정");
+            System.out.println("이름 임력");
+            String name = br.readLine();
+            System.out.println("생년 임력");
+            String strBirthYear = br.readLine();
+            int birthYear = Integer.parseInt(strBirthYear);
+
+            User user = new User(email, name, birthYear);
+            return user;
+        } catch (Exception ex){
+            ex.printStackTrace();
+            return  null;
+        }
+    }
+
     public User regMenu() {
         try {
             System.out.println("email을 입력");
