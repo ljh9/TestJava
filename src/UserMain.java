@@ -36,6 +36,22 @@ public class UserMain {
                 }else {
                     System.out.println("회원 없음");
                 }
+            } else if (menuId == 4) {
+                String email = userUI.inputEmail();
+                int findIndex = -1;
+                for (int i = 0; i < users.size(); i++){
+                    User u = users.get(i);
+                    if(u.getEmail().equals(email)){
+                        findIndex = i;
+                        break;
+                    }
+                }
+                if(findIndex != -1){
+                    users.remove(findIndex);
+                    System.out.println("삭제완료");
+                }else {
+                    System.out.println("회원 없음");
+                }
             }
         }
 

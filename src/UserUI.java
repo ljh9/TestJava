@@ -12,7 +12,8 @@ public class UserUI {
         System.out.println("1. 회원등록");
         System.out.println("2. 회원목록보기");
         System.out.println("3. 회원정보수정");
-        System.out.println("3. 종료");
+        System.out.println("4. 회원정보삭제");
+        System.out.println("5. 종료");
         int menuId = -1;
         try {
             String line = br.readLine();
