@@ -14,16 +14,29 @@ public class UserServiceInMemory implements UserService{
 
     @Override
     public void addUser(User user) {
-
+        users.add(user);
     }
 
     @Override
-    public void updateUser(User user) {
-
+    public boolean updateUser(User user) {
+        int findIndex = -1;
+        for(int i=0; i<users.size(); i++){
+            if(users.get(i).getEmail().equals(user.getEmail())){
+                findIndex = i;
+                users.remove(i);
+                break;
+            }
+        }
+        if(findIndex > -1){
+            users.add(user);
+            return true;
+        } else {
+          return false;
+        }
     }
 
     @Override
-    public void deleteUser(String email) {
+    public boolean deleteUser(String email) {
 
     }
 
