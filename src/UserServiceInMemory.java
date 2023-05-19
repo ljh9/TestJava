@@ -19,15 +19,8 @@ public class UserServiceInMemory implements UserService{
 
     @Override
     public boolean updateUser(User user) {
-        int findIndex = -1;
-        for(int i=0; i<users.size(); i++){
-            if(users.get(i).getEmail().equals(user.getEmail())){
-                findIndex = i;
-                users.remove(i);
-                break;
-            }
-        }
-        if(findIndex > -1){
+        boolean deleteFlag = deleteUser(user.getEmail());
+        if(deleteFlag){
             users.add(user);
             return true;
         } else {
@@ -37,7 +30,19 @@ public class UserServiceInMemory implements UserService{
 
     @Override
     public boolean deleteUser(String email) {
-
+        int findIndex = -1;
+        for(int i=0; i<users.size(); i++){
+            if(users.get(i).getEmail().equals(email)){
+                findIndex = i;
+                users.remove(i);
+                break;
+            }
+        }
+        if(findIndex > -1){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
