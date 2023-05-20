@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class UserServiceInMemory implements UserService{
@@ -46,7 +47,7 @@ public class UserServiceInMemory implements UserService{
     }
 
     @Override
-    public List<User> getUsers() {
-        return null;
+    public Iterator<User> getUsers() {
+        return users.iterator();
     }
 }

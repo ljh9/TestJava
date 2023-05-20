@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.List;
 
 public interface UserService {
@@ -7,5 +8,5 @@ public interface UserService {
 
     public boolean deleteUser(String email);
 
-    public List<User> getUsers();
+    public Iterator<User> getUsers();
 }
