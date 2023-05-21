@@ -15,10 +15,10 @@ public class UserMain {
                 break;
             } else if(menuId == 1){
                 User user = userUI.regMenu();
-                users.add(user);
+                userService.addUser(user);
                 System.out.println("등록");
             } else if(menuId == 2) {
-                userUI.printUserList(users);
+                userUI.printUserList(userService.getUsers());
             } else if (menuId == 3) {
                 String email = userUI.inputEmail();
                 int findIndex = -1;
