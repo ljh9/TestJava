@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class UserDao {
@@ -8,9 +9,14 @@ public class UserDao {
         this.filename = filename;
     }
 
-    public void saveUser(List<User> list){
+    public void saveUser(Iterator<User> iter){
+        List<User> users = new ArrayList<>();
+        while (iter.hasNext()){
+            User user = iter.next();
+            users.add(user);
+        }
     try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
-        out.writeObject(list);
+        out.writeObject(users);
     }catch (Exception ex){
         ex.printStackTrace();
     }

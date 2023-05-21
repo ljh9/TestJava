@@ -4,13 +4,14 @@ public class UserMain {
     public static void main(String[] args) {
         UserUI userUI = new UserUI();
         UserDao userDao = new UserDao("/tmp/users.dat");
-        List<User> users = userDao.getUsers();
+//        List<User> users = userDao.getUsers();
+        UserService userService = new UserServiceInMemory(userDao.getUsers());
 
         while (true){
             int menuId = userUI.menu();
             if(menuId == 5) {
                 System.out.println("종료");
-                userDao.saveUser(users);
+                userDao.saveUser(userService.getUsers());
                 break;
             } else if(menuId == 1){
                 User user = userUI.regMenu();
