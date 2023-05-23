@@ -30,15 +30,27 @@ public class UserServiceInMemory implements UserService{
     }
 
     @Override
-    public boolean deleteUser(String email) {
+    public boolean exists(String email) {
+        if(findIndex(email) > 0)
+            return true;
+        else
+            return false;
+    }
+
+    private int findIndex(String email){
         int findIndex = -1;
         for(int i=0; i<users.size(); i++){
             if(users.get(i).getEmail().equals(email)){
                 findIndex = i;
-                users.remove(i);
                 break;
             }
         }
+        return findIndex;
+    }
+
+    @Override
+    public boolean deleteUser(String email) {
+        int findIndex = exists(email);
         if(findIndex > -1){
             return true;
         } else {

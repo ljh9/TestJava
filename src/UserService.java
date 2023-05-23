@@ -9,4 +9,5 @@ public interface UserService {
     public boolean deleteUser(String email);
 
     public Iterator<User> getUsers();
+    public boolean exists(String email);
 }
