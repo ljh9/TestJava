@@ -21,18 +21,10 @@ public class UserMain {
                 userUI.printUserList(userService.getUsers());
             } else if (menuId == 3) {
                 String email = userUI.inputEmail();
-                int findIndex = -1;
-                for (int i = 0; i < users.size(); i++){
-                    User u = users.get(i);
-                    if(u.getEmail().equals(email)){
-                        findIndex = i;
-                        break;
-                    }
-                }
-                if(findIndex != -1){
+                boolean isFindEmail = userService.exists(email);
+                if(isFindEmail){
                     User updateUser = userUI.inputUser(email);
-                    users.remove(findIndex);
-                    users.add(updateUser);
+                    userService.updateUser(updateUser);
                     System.out.println("수정완료");
                 }else {
                     System.out.println("회원 없음");
