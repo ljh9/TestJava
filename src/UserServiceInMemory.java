@@ -31,7 +31,7 @@ public class UserServiceInMemory implements UserService{
 
     @Override
     public boolean exists(String email) {
-        if(findIndex(email) > 0)
+        if(findIndex(email) >= 0)
             return true;
         else
             return false;
@@ -50,7 +50,7 @@ public class UserServiceInMemory implements UserService{
 
     @Override
     public boolean deleteUser(String email) {
-        int findIndex = exists(email);
+        int findIndex = findIndex(email);
         if(findIndex > -1){
             return true;
         } else {
