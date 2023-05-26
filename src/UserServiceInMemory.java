@@ -52,6 +52,7 @@ public class UserServiceInMemory implements UserService{
     public boolean deleteUser(String email) {
         int findIndex = findIndex(email);
         if(findIndex > -1){
+            users.remove(findIndex);
             return true;
         } else {
             return false;
