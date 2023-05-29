@@ -35,6 +35,7 @@ class ChatThread extends Thread{
         try {
             out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            outList.add(out);
         } catch (Exception ex) {
             ex.printStackTrace();;
         }
@@ -42,6 +43,24 @@ class ChatThread extends Thread{
     }
 
     public void run(){
+        String line = null;
+
+        try {
+            while ((line = in.readLine()) != null) {
+                for (int i = 0; i< outList.size(); i++) {
+                    PrintWriter o = outList.get(i);
+                    o.println(line);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }finally {
+            try {
+                outList.remove(out);
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
 
 
     }
