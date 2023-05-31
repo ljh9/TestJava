@@ -21,3 +21,14 @@ public class ChatClient {
         }
     }
 }
+
+class InputThread extends Thread {
+    BufferedReader in = null;
+    public InputThread(BufferedReader in){
+        this.in = in;
+    }
+    @Override
+    public void run() {
+        super.run();
+    }
+}
