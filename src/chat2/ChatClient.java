@@ -17,6 +17,25 @@ public class ChatClient {
         BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
+        pw.println(name);
+        pw.flush();
+    }
+}
 
+class InputThread extends Thread {
+    BufferedReader br;
+    public InputThread(BufferedReader br) {
+        this.br = br;
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (true){
+
+            }
+        }catch (Exception ex){
+            System.out.println("...");
+        }
     }
 }
