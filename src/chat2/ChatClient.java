@@ -16,9 +16,26 @@ public class ChatClient {
         Socket socket = new Socket("127.0.0.1", 8888);
         BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
         pw.println(name);
         pw.flush();
+
+        InputThread inputThread = new InputThread(br);
+        inputThread.start();
+
+        try {
+            String line = null;
+            while ((line = br.readLine()) != null){
+                if ("/quit".equals(line))
+                    break;
+                pw.println(line);
+                pw.flush();
+            }
+        }catch (Exception ex){
+            System.out.println("...");
+        }
+        socket.close();
     }
 }
 
@@ -31,8 +48,9 @@ class InputThread extends Thread {
     @Override
     public void run() {
         try {
-            while (true){
-
+            String line = null;
+            while ((line = br.readLine()) != null){
+                System.out.println(line);
             }
         }catch (Exception ex){
             System.out.println("...");
