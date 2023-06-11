@@ -23,4 +23,21 @@ public class ChatThread extends Thread{
         this.name = br.readLine();
         this.list.add(this);
     }
+
+    public void sendMessage(String msg) {
+        pw.println(msg);
+        pw.flush();
+    }
+
+    @Override
+    public void run() {
+        String line = null;
+        try {
+            while ((line = br.readLine()) != null) {
+
+            }
+        } catch (Exception ex) {
+
+        }
+    }
 }
