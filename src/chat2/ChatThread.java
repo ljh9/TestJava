@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ChatThread extends Thread{
@@ -38,6 +40,19 @@ public class ChatThread extends Thread{
             }
         } catch (Exception ex) {
 
+        }
+    }
+
+    private void broadcast(String msg, boolean includeMe){
+        List<ChatThread> chatThreads = new ArrayList<>();
+        Collections.copy(chatThreads, this.list);
+
+        try {
+            for(int i=0; i< chatThreads.size(); i++) {
+                ChatThread ct = chatThreads.get(i);
+            }
+        }catch (Exception ex){
+            System.out.println("///");
         }
     }
 }
