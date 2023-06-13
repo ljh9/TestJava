@@ -50,6 +50,12 @@ public class ChatThread extends Thread{
         try {
             for(int i=0; i< chatThreads.size(); i++) {
                 ChatThread ct = chatThreads.get(i);
+                if(!includeMe){
+                    if(ct == this){
+                        continue;
+                    }
+                }
+                ct.sendMessage(msg);
             }
         }catch (Exception ex){
             System.out.println("///");
