@@ -33,13 +33,16 @@ public class ChatThread extends Thread{
 
     @Override
     public void run() {
-        String line = null;
         try {
-            while ((line = br.readLine()) != null) {
+            broadcast(name + " 님이 연결", false);
+            String line = null;
 
+            while ((line = br.readLine()) != null) {
+                broadcast(name + " : " + line, true);
             }
         } catch (Exception ex) {
-
+            broadcast(name + " 님이 연결 끊어짐", false);
+            this.list.remove(this);
         }
     }
 
