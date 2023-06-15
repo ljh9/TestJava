@@ -26,7 +26,7 @@ public class ChatClient {
 
         try {
             String line = null;
-            while ((line = br.readLine()) != null){
+            while ((line = keyboard.readLine()) != null){
                 if ("/quit".equals(line))
                     break;
                 pw.println(line);
