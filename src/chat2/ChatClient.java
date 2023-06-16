@@ -35,7 +35,21 @@ public class ChatClient {
         }catch (Exception ex){
             System.out.println("...");
         }
-        socket.close();
+        try {
+            br.close();
+        }catch (Exception ex){
+
+        }
+        try {
+            pw.close();
+        }catch (Exception ex){
+
+        }
+        try {
+            socket.close();
+        }catch (Exception ex){
+
+        }
     }
 }
 
@@ -55,5 +69,6 @@ class InputThread extends Thread {
         }catch (Exception ex){
             System.out.println("...");
         }
+
     }
 }
