@@ -38,12 +38,31 @@ public class ChatThread extends Thread{
             String line = null;
 
             while ((line = br.readLine()) != null) {
+                if("/quit".equals(line)){
+                    throw  new RuntimeException("접속 종료");
+                }
                 broadcast(name + " : " + line, true);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
             broadcast(name + " 님이 연결 끊어짐", false);
             this.list.remove(this);
+        }finally {
+            try {
+                br.close();
+            }catch (Exception ex){
+
+            }
+            try {
+                pw.close();
+            }catch (Exception ex){
+
+            }
+            try {
+                socket.close();
+            }catch (Exception ex){
+
+            }
         }
     }
 
