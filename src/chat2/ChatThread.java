@@ -45,9 +45,9 @@ public class ChatThread extends Thread{
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+        }finally {
             broadcast(name + " 님이 연결 끊어짐", false);
             this.list.remove(this);
-        }finally {
             try {
                 br.close();
             }catch (Exception ex){
